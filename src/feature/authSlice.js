@@ -41,4 +41,4 @@ export const { setData , logout , setToken } = authSlice.actions
 
 export default authSlice.reducer
 
-export  const accessedToken = (state) => state.auth.token
+export  const accessToken = (state) => state.auth.token

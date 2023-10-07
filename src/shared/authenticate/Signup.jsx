@@ -25,9 +25,14 @@ const Signup = () => {
 
           
   let ldngmsg
+  let errmsg
 
   if(isLoading){
     ldngmsg = <p style={{color:"white"}}>Loading...</p>
+  }
+
+  if(isError){
+    errmsg = <p style={{color:"white"}}>{create_user_error.message}</p>
   }
 
   if (isError) {
@@ -64,11 +69,11 @@ const Signup = () => {
     <div className="form_holder">
       <div  className="form_header">
         <h1>Signup</h1>
+        <div>
+          {inputMsg.current}
+          {ldngmsg}
+        </div>
         <div  className="header__link">
-          
-      {inputMsg.current}
-      {ldngmsg}
-
             <Link className="header__link_link" to='/login'>Already have an account? Please log in.</Link>
             <Link className="header__link_link">Forgot password?</Link>
         </div>

@@ -40,6 +40,14 @@
   width: 90%;
 }
 
+.last_header_stat{
+  display: flex;
+  color: white;
+}
+.last_header_stat .p2{
+  padding-left: 5rem;
+}
+
 .button-60 {
   background: linear-gradient(to bottom right, #28a4ca, #625aff);
   border: 0;
@@ -82,5 +90,10 @@
     bottom: 2rem;
     width: 90%;
   }
+  .last_header_stat{
+    display: flex;
+    flex-direction: column;
+  }
+  
 
 }

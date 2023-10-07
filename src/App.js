@@ -1,17 +1,20 @@
-import { Route, Routes, useNavigate } from "react-router-dom";
+import { Route, Routes, useNavigate } from "react-router-dom"
 import './App.css'
-import Login from './shared/authenticate/Login';
-import Signup from './shared/authenticate/Signup';
-import Home from "./shared/home/Home";
-import { useDispatch, useSelector } from "react-redux";
-import { useEffect, useRef } from "react";
-import { getAccessToken, logout } from "./feature/authSlice";
+import Login from './shared/authenticate/Login'
+import Signup from './shared/authenticate/Signup'
+import Home from "./shared/home/Home"
+import { useDispatch, useSelector } from "react-redux"
+import { useEffect, useRef } from "react"
+import { getAccessToken, logout } from "./feature/authSlice"
+import useUserdata from "./hooks/useUserdata"
+import { format } from 'date-fns'
 
 
 function App() {
+  const { u_email , roles , is_admin , is_manager } = useUserdata()
   const dispatch = useDispatch()
   const navigate = useNavigate()
-  const {user , token } = useSelector(state => state.auth)
+  const { token } = useSelector(state => state.auth)
   const refresh_token = localStorage.getItem('refresh_token')
   const logRef = useRef(null)
   
@@ -28,6 +31,7 @@ function App() {
   }
 
 
+  let currentDate = format(new Date(), 'MMMM do yyyy, h:mm:ss a');
   let links
 
     if(!refresh_token){
@@ -65,6 +69,11 @@ function App() {
       <div className='last_header'>
         <h1>Task Pulse</h1>
         <hr className='br'/>
+        <div className='last_header_stat'>
+          <p className="p1">user: {u_email}</p>
+          <p className="p2">status: {roles.length === 0 ? 'not set yet' : `${is_admin} , ${is_manager}`}</p>
+          <p className="p2">date: {currentDate}</p>
+        </div>
       </div>
     </div>
   );
