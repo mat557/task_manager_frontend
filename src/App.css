@@ -1,38 +1,86 @@
-.App {
-  text-align: center;
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Lobster', cursive;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.head_container{
+  background: linear-gradient(to left, rgb(21, 135, 135,0.6),rgb(20, 134, 134,.7)),url('../public/img/cover.jpg');
+  background-position: center;
+  background-size: cover;
+  background-repeat: none;
+  height: 100vh;
+  padding: 1rem 2rem;
+  position: relative;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.first_header{
+  top: 0;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.first_header-item{
   display: flex;
-  flex-direction: column;
   align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  justify-content: space-between;
 }
 
-.App-link {
-  color: #61dafb;
+.first_header-item h1{
+  cursor: pointer;
+  transition: .2s all;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+.first_header-item h1:hover{
+  padding-left: 1rem;
+}
+
+.last_header{
+  position: absolute;
+  bottom: 2rem;
+  width: 90%;
+}
+
+.button-60 {
+  background: linear-gradient(to bottom right, #28a4ca, #625aff);
+  border: 0;
+  border-radius: 12px;
+  color: #FFFFFF;
+  cursor: pointer;
+  display: inline-block;
+  font-family: -apple-system,system-ui,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 2.5;
+  outline: transparent;
+  padding: 0 1rem;
+  text-align: center;
+  text-decoration: none;
+  transition: box-shadow .2s ease-in-out;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+  white-space: nowrap;
+}
+
+.button-60:not([disabled]):focus {
+  box-shadow: 0 0 .25rem rgba(0, 0, 0, 0.5), -.125rem -.125rem 1rem rgba(239, 71, 101, 0.5), .125rem .125rem 1rem rgba(255, 154, 90, 0.5);
+}
+
+.button-60:not([disabled]):hover {
+  box-shadow: 0 0 .25rem rgba(0, 0, 0, 0.5), -.125rem -.125rem 1rem rgba(239, 71, 101, 0.5), .125rem .125rem 1rem rgba(255, 154, 90, 0.5);
+}
+
+
+@media screen and (max-width:420px) {
+  .head_container{
+    max-height: 100vh;
   }
-  to {
-    transform: rotate(360deg);
+
+
+  .last_header{
+    position: fixed;
+    bottom: 2rem;
+    width: 90%;
   }
+
 }
